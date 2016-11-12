@@ -35,14 +35,14 @@ void ClockOption()
         hh_end = StrToInt(godz);
         mm_end = StrToInt(min);
 
-        if (hh_end > 23 || mm_end > 59)
-        {
-                Application -> MessageBox("Nieprawid³owy format godziny!","Error", MB_ICONSTOP | MB_OK);
-                Form1 -> SetTime -> Text = "00:00";
-                clean = false;
-        }
-        else
-                clean = true;
+        //if (hh_end > 23 || mm_end > 59)
+        //{
+        //        Application -> MessageBox("Nieprawid³owy format godziny!","Error", MB_ICONSTOP | MB_OK);
+        //        Form1 -> SetTime -> Text = "00:00";
+        //        clean = false;
+        //}
+        //else
+        //        clean = true;
 
         if (hh_end > hh)
         {

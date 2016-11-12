@@ -35,14 +35,14 @@ void ClockOption()
         hh_end = StrToInt(godz);
         mm_end = StrToInt(min);
 
-        //if (hh_end > 23 || mm_end > 59)
-        //{
-        //        Application -> MessageBox("Nieprawid³owy format godziny!","Error", MB_ICONSTOP | MB_OK);
-        //        Form1 -> SetTime -> Text = "00:00";
-        //        clean = false;
-        //}
-        //else
-        //        clean = true;
+        if (hh_end > 23 || mm_end > 59)
+        {
+                Application -> MessageBox("Nieprawid³owy format godziny!","Error", MB_ICONSTOP | MB_OK);
+                Form1 -> SetTime -> Text = "00:00";
+                clean = false;
+        }
+        else
+                clean = true;
 
         if (hh_end > hh)
         {
@@ -116,33 +116,35 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
 
 void __fastcall TForm1::Start_buttonClick(TObject *Sender)
 {
-        if(clean)
+        switch (tryb)
         {
-                switch (tryb)
-                {
-                        case 0: ClockOption(); break;
-                        case 1: TimeOption(); break;
-                }
-        Timer1 -> Enabled = true;
-        Counting -> Visible = true;
-        Counting -> Caption = "No to lecimy...";
-        Stop_button -> Visible = true;
-        Start_button -> Visible = true;
-
-        Label_title -> Visible = false;
-        Switch1 -> Visible = false;
-        Switch2 -> Visible = false;
-        Lab_godz -> Visible = false;
-        SetTime -> Visible = false;
-        Lab_za -> Visible = false;
-        Label_godz -> Visible = false;
-        Label_min -> Visible = false;
-        Hours -> Visible = false;
-        Minutes -> Visible = false;
-        Label1 -> Visible = false;
-        Label2 -> Visible = false;
-        Label3 -> Visible = false;
+                case 0: ClockOption(); break;
+                case 1: TimeOption(); break;
         }
+        if (clean)
+        {
+                Timer1 -> Enabled = true;
+                Counting -> Visible = true;
+                Counting -> Caption = "No to lecimy...";
+                Stop_button -> Visible = true;
+                Start_button -> Visible = true;
+
+                Label_title -> Visible = false;
+                Switch1 -> Visible = false;
+                Switch2 -> Visible = false;
+                Lab_godz -> Visible = false;
+                SetTime -> Visible = false;
+                Lab_za -> Visible = false;
+                Label_godz -> Visible = false;
+                Label_min -> Visible = false;
+                Hours -> Visible = false;
+                Minutes -> Visible = false;
+                Label1 -> Visible = false;
+                Label2 -> Visible = false;
+                Label3 -> Visible = false;
+        }
+        else
+                clean = true;
 }
 //---------------------------------------------------------------------------
 
