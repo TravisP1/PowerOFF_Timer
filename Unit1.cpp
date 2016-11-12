@@ -72,6 +72,15 @@ void TimeOption()
         hh_end = StrToInt(ile);
         ile = Form1 -> Minutes -> Text;
         mm_end = StrToInt(ile);
+
+        if (mm_end > 59)
+        {
+                Application -> MessageBox("Nieprawid³owy format godziny!","Error", MB_ICONSTOP | MB_OK);
+                Form1 -> Minutes -> Text = "59";
+                clean = false;
+        }
+        else
+                clean = true;
         czas = hh_end * 3600 + mm_end * 60;
 }
 
